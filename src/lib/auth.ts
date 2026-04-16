@@ -6,12 +6,7 @@ import { connectToDatabase, isDatabaseEnabled } from "@/lib/db";
 import User from "@/models/User";
 import type { AuthUser } from "@/lib/types";
 
-const JWT_SECRET = process.env.JWT_SECRET;
 const COOKIE_NAME = "akasak_token";
-
-if (!JWT_SECRET) {
-  throw new Error("Please define JWT_SECRET in your environment variables.");
-}
 
 interface TokenPayload {
   id: string;
@@ -21,11 +16,12 @@ interface TokenPayload {
 }
 
 function getJwtSecret() {
-  if (!JWT_SECRET) {
+  const secret = process.env.JWT_SECRET?.trim();
+  if (!secret) {
     throw new Error("Please define JWT_SECRET in your environment variables.");
   }
 
-  return JWT_SECRET;
+  return secret;
 }
 
 export function signToken(payload: TokenPayload) {
