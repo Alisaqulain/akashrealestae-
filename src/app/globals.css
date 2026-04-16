@@ -24,12 +24,16 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 a {
@@ -39,7 +43,7 @@ a {
 .container-shell {
   margin-inline: auto;
   width: min(100%, 80rem);
-  padding-inline: 1.5rem;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
 }
 
 .luxury-panel {

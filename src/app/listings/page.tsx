@@ -26,7 +26,7 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
   const properties = await getProperties(filters);
 
   return (
-    <div className="container-shell py-16">
+    <div className="container-shell py-10 sm:py-16">
       <SectionHeading
         eyebrow="Property Listings"
         title="Explore AKASAK's active Bangalore inventory"

@@ -57,7 +57,7 @@ export function ListingsFilter() {
   }
 
   return (
-    <div className="grid gap-4 rounded-[28px] border border-white/10 bg-[var(--green-950)] p-6 md:grid-cols-6">
+    <div className="grid grid-cols-1 gap-3 rounded-[28px] border border-white/10 bg-[var(--green-950)] p-4 sm:p-6 sm:grid-cols-2 lg:grid-cols-6 lg:gap-4">
       <Input
         placeholder="Search Bangalore location"
         value={location}
@@ -91,9 +91,11 @@ export function ListingsFilter() {
         <option value="price-asc">Price: Low to high</option>
         <option value="price-desc">Price: High to low</option>
       </Select>
-      <div className="flex gap-3 md:col-span-6">
-        <Button onClick={applyFilters}>Apply filters</Button>
-        <Button variant="secondary" onClick={resetFilters}>
+      <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:flex-wrap lg:col-span-6">
+        <Button className="w-full sm:w-auto" onClick={applyFilters}>
+          Apply filters
+        </Button>
+        <Button className="w-full sm:w-auto" variant="secondary" onClick={resetFilters}>
           Reset
         </Button>
       </div>

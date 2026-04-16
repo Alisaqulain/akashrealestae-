@@ -18,7 +18,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition duration-300",
+        "inline-flex min-h-11 min-w-[2.75rem] touch-manipulation items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition duration-300 sm:min-h-12 sm:min-w-0",
         variant === "primary" &&
           "bg-[var(--gold)] text-[var(--green-950)] shadow-lg shadow-[var(--gold)]/20 hover:-translate-y-0.5 hover:bg-[#ddb96b]",
         variant === "secondary" &&

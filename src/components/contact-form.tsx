@@ -30,7 +30,10 @@ export function ContactForm({ propertyId }: { propertyId?: string }) {
   }
 
   return (
-    <form action={handleSubmit} className="space-y-4 rounded-[28px] border border-[var(--line)] bg-white p-8 shadow-sm">
+    <form
+      action={handleSubmit}
+      className="space-y-4 rounded-[28px] border border-[var(--line)] bg-white p-5 shadow-sm sm:p-8"
+    >
       <input type="hidden" name="propertyId" value={propertyId || ""} />
       <Input name="name" placeholder="Your name" required />
       <Input name="phone" placeholder="Phone number" required />

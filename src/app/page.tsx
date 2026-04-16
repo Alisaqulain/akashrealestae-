@@ -18,35 +18,39 @@ export default async function Home() {
   return (
     <div>
       <section className="bg-[var(--green-950)] text-white">
-        <div className="container-shell grid gap-10 py-20 md:grid-cols-[1.2fr_0.8fr] md:py-28">
-          <Reveal className="space-y-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[var(--gold)]">
+        <div className="container-shell grid gap-8 py-14 sm:gap-10 sm:py-20 md:grid-cols-[1.2fr_0.8fr] md:py-28">
+          <Reveal className="space-y-6 sm:space-y-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)] sm:text-sm sm:tracking-[0.35em]">
               Premium Real Estate In Bangalore
             </p>
-            <h1 className="max-w-3xl text-balance font-serif text-5xl leading-tight md:text-7xl">
+            <h1 className="max-w-3xl text-balance font-serif text-3xl leading-tight sm:text-4xl sm:leading-tight md:text-6xl lg:text-7xl">
               Find luxury homes, investment-ready plots, and curated rentals with AKASAK.
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-white/75">
+            <p className="max-w-2xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
               A premium property platform designed for modern buyers, landlords, and developers who want elegant discovery, trustworthy listings, and simple property management.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/listings">
-                <Button>Explore listings</Button>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <Link className="w-full sm:w-auto" href="/listings">
+                <Button className="w-full sm:w-auto">Explore listings</Button>
               </Link>
               {isAdmin ? (
-                <Link href="/add-property">
-                  <Button variant="secondary">Add property (admin)</Button>
+                <Link className="w-full sm:w-auto" href="/add-property">
+                  <Button className="w-full sm:w-auto" variant="secondary">
+                    Add property (admin)
+                  </Button>
                 </Link>
               ) : (
-                <Link href="/contact">
-                  <Button variant="secondary">Talk to our team</Button>
+                <Link className="w-full sm:w-auto" href="/contact">
+                  <Button className="w-full sm:w-auto" variant="secondary">
+                    Talk to our team
+                  </Button>
                 </Link>
               )}
             </div>
-            <div className="grid gap-4 pt-6 sm:grid-cols-3">
+            <div className="grid gap-3 pt-4 sm:grid-cols-3 sm:gap-4 sm:pt-6">
               {stats.map((stat) => (
-                <div key={stat.label} className="luxury-panel rounded-[28px] p-5">
-                  <p className="font-serif text-4xl text-white">{stat.value}</p>
+                <div key={stat.label} className="luxury-panel rounded-[24px] p-4 sm:rounded-[28px] sm:p-5">
+                  <p className="font-serif text-3xl text-white sm:text-4xl">{stat.value}</p>
                   <p className="mt-2 text-sm text-white/65">{stat.label}</p>
                 </div>
               ))}

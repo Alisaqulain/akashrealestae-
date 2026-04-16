@@ -22,7 +22,7 @@ export function SectionHeading({
         {eyebrow}
       </p>
       <h2
-        className={`mt-4 font-serif text-3xl md:text-5xl ${isDark ? "text-[#f7f5ef]" : "text-[var(--green-950)]"}`}
+        className={`mt-4 text-balance font-serif text-2xl sm:text-3xl md:text-5xl ${isDark ? "text-[#f7f5ef]" : "text-[var(--green-950)]"}`}
       >
         {title}
       </h2>

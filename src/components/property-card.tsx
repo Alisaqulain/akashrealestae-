@@ -12,7 +12,7 @@ interface PropertyCardProps {
 export function PropertyCard({ property }: PropertyCardProps) {
   return (
     <article className="group overflow-hidden rounded-[28px] border border-[var(--line)] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-52 overflow-hidden sm:h-64">
         <Image
           src={property.images?.[0] || "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1600&auto=format&fit=crop"}
           alt={property.title}
@@ -26,15 +26,15 @@ export function PropertyCard({ property }: PropertyCardProps) {
           </Badge>
         </div>
       </div>
-      <div className="space-y-4 p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+      <div className="space-y-4 p-4 sm:p-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          <div className="min-w-0">
             <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{property.type}</p>
-            <h3 className="mt-2 font-serif text-2xl text-[var(--green-950)]">
+            <h3 className="mt-2 line-clamp-2 font-serif text-xl text-[var(--green-950)] sm:text-2xl">
               {property.title}
             </h3>
           </div>
-          <p className="text-lg font-semibold text-[var(--gold)]">
+          <p className="shrink-0 text-lg font-semibold text-[var(--gold)]">
             {formatCompactCurrency(property.price)}
           </p>
         </div>

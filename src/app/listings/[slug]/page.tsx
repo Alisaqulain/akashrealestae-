@@ -40,25 +40,27 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
   const whatsAppMessage = `Hello AKASAK, I'm interested in ${property.title} in ${property.location}.`;
 
   return (
-    <div className="container-shell py-16">
-      <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-        <section className="space-y-6">
-          <div className="flex flex-wrap gap-3">
+    <div className="container-shell py-10 sm:py-16">
+      <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+        <section className="space-y-5 sm:space-y-6">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             <Badge>{property.type}</Badge>
             <Badge>{property.purpose === "buy" ? "Buy" : "Rent"}</Badge>
             <Badge>{property.status}</Badge>
           </div>
           <div>
-            <h1 className="font-serif text-5xl text-[var(--green-950)]">{property.title}</h1>
-            <p className="mt-3 text-lg text-slate-600">
+            <h1 className="text-balance break-words font-serif text-3xl text-[var(--green-950)] sm:text-4xl md:text-5xl">
+              {property.title}
+            </h1>
+            <p className="mt-3 text-base text-slate-600 sm:text-lg">
               {property.location}, {property.city}
             </p>
-            <p className="mt-4 text-3xl font-semibold text-[var(--gold)]">
+            <p className="mt-4 text-2xl font-semibold text-[var(--gold)] sm:text-3xl">
               {formatCurrency(property.price)}
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="relative h-80 overflow-hidden rounded-[32px] md:col-span-2">
+          <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
+            <div className="relative h-64 overflow-hidden rounded-[24px] sm:h-72 sm:rounded-[32px] md:col-span-2 md:h-80">
               <Image
                 src={property.images[0]}
                 alt={property.title}
@@ -67,35 +69,40 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               />
             </div>
             {property.images.slice(1, 3).map((image: string) => (
-              <div key={image} className="relative h-56 overflow-hidden rounded-[32px]">
+              <div
+                key={image}
+                className="relative h-48 overflow-hidden rounded-[24px] sm:h-52 sm:rounded-[32px] md:h-56"
+              >
                 <Image src={image} alt={property.title} fill className="object-cover" />
               </div>
             ))}
           </div>
-          <div className="grid gap-4 rounded-[28px] border border-[var(--line)] bg-white p-6 shadow-sm md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 rounded-[28px] border border-[var(--line)] bg-white p-4 shadow-sm sm:gap-4 sm:p-6 md:grid-cols-4">
             <div>
               <p className="text-sm text-slate-500">Bedrooms</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--green-950)]">{property.bedrooms}</p>
+              <p className="mt-2 text-lg font-semibold text-[var(--green-950)] sm:text-xl">{property.bedrooms}</p>
             </div>
             <div>
               <p className="text-sm text-slate-500">Bathrooms</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--green-950)]">{property.bathrooms}</p>
+              <p className="mt-2 text-lg font-semibold text-[var(--green-950)] sm:text-xl">{property.bathrooms}</p>
             </div>
             <div>
               <p className="text-sm text-slate-500">Area</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--green-950)]">{property.area} sq.ft</p>
+              <p className="mt-2 text-lg font-semibold text-[var(--green-950)] sm:text-xl">{property.area} sq.ft</p>
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <p className="text-sm text-slate-500">Address</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--green-950)]">{property.address}</p>
+              <p className="mt-2 break-words text-lg font-semibold text-[var(--green-950)] sm:text-xl">
+                {property.address}
+              </p>
             </div>
           </div>
-          <div className="rounded-[28px] border border-[var(--line)] bg-white p-8 shadow-sm">
-            <h2 className="font-serif text-3xl text-[var(--green-950)]">About this property</h2>
-            <p className="mt-4 text-base leading-8 text-slate-600">{property.description}</p>
+          <div className="rounded-[28px] border border-[var(--line)] bg-white p-5 shadow-sm sm:p-8">
+            <h2 className="font-serif text-2xl text-[var(--green-950)] sm:text-3xl">About this property</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600 sm:leading-8">{property.description}</p>
           </div>
-          <div className="rounded-[28px] border border-[var(--line)] bg-white p-8 shadow-sm">
-            <h2 className="font-serif text-3xl text-[var(--green-950)]">Amenities</h2>
+          <div className="rounded-[28px] border border-[var(--line)] bg-white p-5 shadow-sm sm:p-8">
+            <h2 className="font-serif text-2xl text-[var(--green-950)] sm:text-3xl">Amenities</h2>
             <div className="mt-6 flex flex-wrap gap-3">
               {property.amenities.map((amenity: string) => (
                 <span
@@ -114,17 +121,17 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
           />
         </section>
 
-        <aside className="space-y-6">
-          <div className="rounded-[28px] border border-[var(--line)] bg-[var(--green-950)] p-8 text-white shadow-sm">
+        <aside className="space-y-5 sm:space-y-6">
+          <div className="rounded-[28px] border border-[var(--line)] bg-[var(--green-950)] p-5 text-white shadow-sm sm:p-8">
             <p className="text-sm uppercase tracking-[0.3em] text-[var(--gold)]">Quick connect</p>
-            <h2 className="mt-3 font-serif text-3xl">Talk to a property specialist</h2>
+            <h2 className="mt-3 font-serif text-2xl sm:text-3xl">Talk to a property specialist</h2>
             <p className="mt-4 text-sm leading-7 text-white/70">
               Call or WhatsApp the AKASAK team for this property. We help buyers and tenants move quickly.
             </p>
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href={`tel:${company.phone}`}
-                className="rounded-full bg-[var(--gold)] px-5 py-3 text-center text-sm font-semibold text-[var(--green-950)]"
+                className="touch-manipulation rounded-full bg-[var(--gold)] px-5 py-3.5 text-center text-sm font-semibold text-[var(--green-950)] active:opacity-90"
               >
                 Call {company.phone}
               </a>
@@ -132,7 +139,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                 href={getWhatsAppLink(whatsAppMessage)}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 px-5 py-3 text-center text-sm font-semibold text-white"
+                className="touch-manipulation rounded-full border border-white/15 px-5 py-3.5 text-center text-sm font-semibold text-white active:bg-white/10"
               >
                 WhatsApp now
               </a>

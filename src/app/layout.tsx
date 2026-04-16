@@ -17,6 +17,13 @@ const playfair = Playfair_Display({
   weight: ["600", "700"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0f3d3e",
+};
+
 export const metadata: Metadata = {
   title: {
     default: "AKASAK | Premium Bangalore Real Estate",

@@ -40,7 +40,10 @@ export function AuthForm({ mode }: AuthFormProps) {
   }
 
   return (
-    <form action={handleSubmit} className="space-y-4 rounded-[28px] border border-[var(--line)] bg-white p-8 shadow-sm">
+    <form
+      action={handleSubmit}
+      className="space-y-4 rounded-[28px] border border-[var(--line)] bg-white p-5 shadow-sm sm:p-8"
+    >
       {mode === "signup" && <Input name="name" placeholder="Full name" required />}
       <Input name="email" type="email" placeholder="Email address" required />
       <Input name="password" type="password" placeholder="Password" required />

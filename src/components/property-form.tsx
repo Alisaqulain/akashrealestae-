@@ -112,7 +112,10 @@ export function PropertyForm({ property }: PropertyFormProps) {
   }
 
   return (
-    <form action={handleSubmit} className="space-y-8 rounded-[32px] border border-[var(--line)] bg-white p-8 shadow-sm">
+    <form
+      action={handleSubmit}
+      className="space-y-6 rounded-[28px] border border-[var(--line)] bg-white p-5 shadow-sm sm:space-y-8 sm:rounded-[32px] sm:p-8"
+    >
       <div className="grid gap-4 md:grid-cols-2">
         <Input name="title" placeholder="Property title" defaultValue={property?.title} required />
         <Input

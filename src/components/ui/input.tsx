@@ -9,7 +9,7 @@ export function Input({
   return (
     <input
       className={cn(
-        "w-full rounded-2xl border border-[var(--line)] bg-white px-4 py-3 text-sm text-[var(--green-950)] outline-none transition placeholder:text-slate-400 focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/20",
+        "min-h-11 w-full rounded-2xl border border-[var(--line)] bg-white px-4 py-3 text-base text-[var(--green-950)] outline-none transition placeholder:text-slate-400 focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/20 sm:text-sm",
         className,
       )}
       {...props}
@@ -24,7 +24,7 @@ export function Textarea({
   return (
     <textarea
       className={cn(
-        "min-h-32 w-full rounded-2xl border border-[var(--line)] bg-white px-4 py-3 text-sm text-[var(--green-950)] outline-none transition placeholder:text-slate-400 focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/20",
+        "min-h-32 w-full rounded-2xl border border-[var(--line)] bg-white px-4 py-3 text-base text-[var(--green-950)] outline-none transition placeholder:text-slate-400 focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/20 sm:text-sm",
         className,
       )}
       {...props}
@@ -39,7 +39,7 @@ export function Select({
   return (
     <select
       className={cn(
-        "w-full rounded-2xl border border-[var(--line)] bg-white px-4 py-3 text-sm text-[var(--green-950)] outline-none transition focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/20",
+        "min-h-11 w-full rounded-2xl border border-[var(--line)] bg-white px-4 py-3 text-base text-[var(--green-950)] outline-none transition focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/20 sm:text-sm",
         className,
       )}
       {...props}

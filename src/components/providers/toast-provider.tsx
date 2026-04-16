@@ -5,7 +5,8 @@ import { Toaster } from "react-hot-toast";
 export function ToastProvider() {
   return (
     <Toaster
-      position="top-right"
+      position="bottom-center"
+      containerStyle={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
       toastOptions={{
         style: {
           borderRadius: "18px",

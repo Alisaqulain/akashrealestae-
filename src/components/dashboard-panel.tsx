@@ -90,11 +90,14 @@ export function DashboardPanel({ properties, users, inquiries }: DashboardPanelP
                       {creator || "Unknown"} | {property.approvalStatus}
                     </p>
                   </div>
-                  <div className="flex flex-wrap gap-3">
-                    <Link href={`/add-property/${property._id.toString()}`}>
-                      <Button variant="secondary">Edit</Button>
+                  <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
+                    <Link className="w-full sm:w-auto" href={`/add-property/${property._id.toString()}`}>
+                      <Button className="w-full sm:w-auto" variant="secondary">
+                        Edit
+                      </Button>
                     </Link>
                     <Button
+                      className="w-full sm:w-auto"
                       onClick={() =>
                         updateProperty(property._id.toString(), {
                           ...property,
@@ -105,7 +108,11 @@ export function DashboardPanel({ properties, users, inquiries }: DashboardPanelP
                     >
                       {property.approvalStatus === "approved" ? "Mark pending" : "Approve"}
                     </Button>
-                    <Button variant="secondary" onClick={() => deleteProperty(property._id.toString())}>
+                    <Button
+                      className="w-full sm:w-auto"
+                      variant="secondary"
+                      onClick={() => deleteProperty(property._id.toString())}
+                    >
                       Delete
                     </Button>
                   </div>

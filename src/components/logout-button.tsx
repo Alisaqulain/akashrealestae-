@@ -23,7 +23,7 @@ export function LogoutButton() {
     <button
       type="button"
       onClick={handleLogout}
-      className="text-sm font-semibold text-white/80 transition hover:text-[var(--gold)]"
+      className="min-h-11 touch-manipulation rounded-lg px-3 text-sm font-semibold text-white/80 transition hover:bg-white/10 hover:text-[var(--gold)]"
     >
       Logout
     </button>
