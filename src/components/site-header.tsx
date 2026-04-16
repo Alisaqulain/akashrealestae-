@@ -32,9 +32,9 @@ export async function SiteHeader() {
   const navLinks = buildNavLinks(user?.role);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[var(--green-950)]/95 backdrop-blur">
-      <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 sm:py-4">
-        <div className="flex items-center justify-between gap-3">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[var(--green-950)]/95 pt-[env(safe-area-inset-top)] backdrop-blur">
+      <div className="mx-auto max-w-7xl px-[clamp(1rem,4vw,1.5rem)] py-3 sm:py-4">
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
           <div className="min-w-0 shrink">
             <Link
               href="/"
@@ -45,11 +45,11 @@ export async function SiteHeader() {
                 alt={`${company.name} — premium Bangalore real estate`}
                 width={200}
                 height={72}
-                className="h-9 w-auto max-w-[min(100%,11rem)] object-contain object-left sm:h-11 sm:max-w-none md:h-14"
+                className="h-9 w-auto max-w-[min(100%,10.5rem)] object-contain object-left sm:h-11 sm:max-w-none md:h-14"
                 priority
               />
             </Link>
-            <p className="mt-1 truncate text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--gold)] sm:text-xs sm:tracking-[0.3em]">
+            <p className="mt-1 hidden truncate text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--gold)] sm:block sm:text-xs sm:tracking-[0.3em]">
               Bangalore Luxury Realty
             </p>
           </div>
@@ -69,7 +69,7 @@ export async function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-3">
             <a
               href={`tel:${company.phone}`}
               className="hidden min-h-11 items-center rounded-lg px-2 text-sm font-semibold text-[var(--gold)] hover:bg-white/5 xl:inline-flex"

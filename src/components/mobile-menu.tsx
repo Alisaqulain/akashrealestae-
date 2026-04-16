@@ -44,34 +44,42 @@ export function MobileMenu({ links }: MobileMenuProps) {
       </button>
 
       {open ? (
-        <div className="fixed inset-0 z-[100] md:hidden" id="mobile-nav-drawer">
+        <div
+          className="fixed inset-0 z-[100] md:hidden"
+          id="mobile-nav-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+        >
           <button
             type="button"
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--gold)]"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
           />
           <nav
-            className="absolute right-0 top-0 flex h-full max-h-[100dvh] w-[min(22rem,calc(100vw-2rem))] flex-col border-l border-white/10 bg-[var(--green-950)] shadow-2xl"
+            className="absolute inset-y-0 right-0 flex h-full max-h-[100dvh] w-full flex-col border-l border-white/10 bg-[var(--green-950)] shadow-2xl sm:w-[min(22rem,calc(100vw-2rem))]"
             aria-label="Mobile navigation"
           >
-            <div className="flex items-center justify-between border-b border-white/10 px-4 py-4">
+            <div className="flex min-h-[3.25rem] items-center justify-between gap-3 border-b border-white/10 px-[clamp(1rem,4vw,1.5rem)] pb-4 pt-[max(1rem,env(safe-area-inset-top))]">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Menu</span>
               <button
                 type="button"
-                className="touch-manipulation flex min-h-11 min-w-11 items-center justify-center rounded-lg text-xl text-white/90 hover:bg-white/10"
+                className="touch-manipulation flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-white/90 hover:bg-white/10"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
               >
-                ×
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={22} height={22} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden>
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
               </button>
             </div>
-            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-2 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block min-h-12 border-b border-white/5 px-5 py-3.5 text-base font-medium text-white/90 transition active:bg-white/10"
+                  className="block min-h-12 border-b border-white/5 px-[clamp(1rem,4vw,1.5rem)] py-3.5 pr-[max(1rem,env(safe-area-inset-right))] text-base font-medium text-white/90 transition active:bg-white/10"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
